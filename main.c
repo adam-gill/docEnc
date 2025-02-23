@@ -12,7 +12,7 @@ int main() {
     char binaryOutput[33]; // 32 bits for 4 characters + null terminator
     getPlainText(binaryOutput); // Call the modified function
     printf("Binary representation: %s\n", binaryOutput);
-  
+  // Lebron
     
     
 
