@@ -1,22 +1,35 @@
 #include <stdio.h>
 
-void getPlainText(char *outputText) {
-    char input[5]; // Array to hold 4 characters + null terminator
-    printf("Enter 4 ASCII characters: ");
-    fgets(input, sizeof(input), stdin);
+void get4CharInput(char *input) {
+    while (1) {
+        printf("Enter a 4-character ciphertext: ");
+        scanf("%4s", input);
 
-    
+        int length = 0;
+        while (input[length] != '\0') {
+            length++;
+        }
+
+        if (length == 4 && getchar() == '\n') {
+            break;
+        }
+
+        printf("Invalid input! Please enter exactly 4 characters.\n");
+        while (getchar() != '\n');
+    }
 }
 
 int main() {
-    char binaryOutput[33]; // 32 bits for 4 characters + null terminator
-    getPlainText(binaryOutput); // Call the modified function
-    printf("Binary representation: %s\n", binaryOutput);
-  // Lebron
-    
-    
+    char plaintext[5];
+    char key[101];
 
-  return 0;
+    get4CharInput(plaintext);
 
+    printf("Enter a key (up to 100 characters): ");
+    scanf("%100s", key);
 
+    printf("Plaintext: %s\n", plaintext);
+    printf("Key: %s\n", key);
+
+    return 0;
 }

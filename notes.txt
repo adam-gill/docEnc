@@ -3,4 +3,4 @@ use xor
 key whitening = use keys before and after encryption algorithm
     - plaintext > xor (w/key) > encryption > xor (w/key) > ciphertext
     - like painting over a fence with white, the fence is still visible after the first coat
-        - after many coats, (key whitens) the fence (key) becomes less visible
+        - after many coats, (key whitens) the fence (key) becomes less visible 
