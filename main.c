@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// get and store input for a given variable, also has a prompt parameter to give the user a prompt
 void getInput(char *variable, const char *prompt) {
     while (1) {
         printf("%s", prompt);
@@ -29,19 +30,8 @@ void getInput(char *variable, const char *prompt) {
     }
 }
 
-
-
-void copyString(char *destination, const char *source)
-{
-    int i = 0;
-    while (source[i] != '\0')
-    {
-        destination[i] = source[i];
-        i++;
-    }
-    destination[i] = '\0';
-}
-
+// swap every other character with one another, then reverse that string
+// ex: lebron --> belnor --> ronleb
 void byteSwap(char *data)
 {
     int len = strlen(data);
@@ -53,6 +43,7 @@ void byteSwap(char *data)
         data[i + 2] = temp;
     }
 
+    // reverse string
     for (int i = 0; i < len / 2; i++)
     {
         char temp = data[i];
@@ -61,6 +52,8 @@ void byteSwap(char *data)
     }
 }
 
+// reverses the byteSwap to get the original string 
+// ex: ronleb --> lebron
 void reverseByteSwap(char *data)
 {
     int len = strlen(data);
@@ -80,6 +73,10 @@ void reverseByteSwap(char *data)
     }
 }
 
+// applies key to the plaintext/ciphertext to encrypt or decrypt
+// if key is longer than plaintext: key is only applied to the characters that it matches up with in the plain
+// text (leftover key). If the key is shorter than the plaintext: the key loops around the plaintext until all
+// characters of the plaintext are xored with a character from the key
 void applyKey(char *data, char *key) {
     int dataLen = strlen(data);
     int keyLen = strlen(key);
@@ -98,6 +95,7 @@ void applyKey(char *data, char *key) {
     }
 }
 
+// does a byte swap, xores with the key, then byte swaps again
 void encrypt(char *plaintext, char *key, char *ciphertext)
 {
     strcpy(ciphertext, plaintext);
@@ -106,6 +104,8 @@ void encrypt(char *plaintext, char *key, char *ciphertext)
     byteSwap(ciphertext);
 }
 
+
+// does the inverse of the encryption to decrypt
 void decrypt(char *plaintext, char *key, char *ciphertext)
 {
     strcpy(plaintext, ciphertext);
@@ -149,6 +149,7 @@ int main()
         }
 
     } while (strcmp(control, "q") != 0);
+    // driver program to take in input and encrypt/decrypt values
 
 
     return 0;
