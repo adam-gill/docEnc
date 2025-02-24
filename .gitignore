@@ -4,3 +4,7 @@
 
 *.exe
 .vscode/
+/.vscode
+
+test.c
+backup2-24.c
