@@ -1,1 +1,2 @@
-# custom encryption algorithm for doc (CSC 417 - Cryptoanalysis)
+# Custom Encryption Algorithm for Doc
+- CSC 417 Cryptanalysis
